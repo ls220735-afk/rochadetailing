@@ -1270,3 +1270,914 @@
        BOTÃO FLUTUANTE WHATSAPP
        ========================================================================== */
     .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 990;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--whatsapp);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background-color: var(--whatsapp-hover);
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 72px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. TOPO FIXO (MENU)
+       ======================================================================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <!-- TROCAR LOGO: Substitua o texto ou insira uma tag <img> com sua marca -->
+      <a href="#" class="logo" aria-label="Página inicial [NOME DA EMPRESA]">
+        <span class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+        </span>
+        <span>[NOME DA EMPRESA]</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Menu principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp header-cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+      <a href="#servicos">Serviços</a>
+      <a href="#pacotes">Pacotes</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#galeria">Antes e Depois</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Agendar / Contato</a>
+      <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        Agendar pelo WhatsApp
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         2. HERO SECTION
+         ====================================================================== -->
+    <section class="hero">
+      <div class="hero-bg" role="img" aria-label="Carro esportivo recém-polido com brilho intenso"></div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Estética Automotiva de Alto Padrão em [CIDADE/BAIRRO]
+        </div>
+        <h1>Seu carro com brilho de zero km e <span>proteção de verdade.</span></h1>
+        <p>Esqueça lavagens rápidas que riscam a pintura. Na [NOME DA EMPRESA], aplicamos técnicas de detalhamento automotivo, produtos de pH neutro e acabamento minucioso para valorizar o seu patrimônio.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+          <a href="#servicos" class="btn btn-outline-light">Conhecer Serviços</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. FAIXA DE CONFIANÇA
+         ====================================================================== -->
+    <div class="trust-bar">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>+7 Anos</strong>
+            <span>De experiência no setor</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>+4.500 Carros</strong>
+            <span>Atendidos com excelência</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>4.9 ★ Google</strong>
+            <span>Avaliação média dos clientes</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="trust-text">
+            <strong>100% Premium</strong>
+            <span>Produtos biodegradáveis e pH neutro</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         4. SERVIÇOS
+         ====================================================================== -->
+    <section id="servicos" class="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Nossos Serviços</span>
+          <h2>Cuidado completo para cada detalhe do seu veículo</h2>
+          <p>Do banho técnico semanal à proteção cerâmica de longa duração. Escolha o tratamento ideal e peça seu orçamento sem compromisso.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <article class="service-card reveal">
+            <div>
+              <div class="service-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <h3>Lavagem Técnica Detalhada</h3>
+              <p>Pré-lavagem com snow foam, shampoo neutro, limpeza de caixas de roda, emblemas, cantos de porta e secagem com microfibra de alta gramatura para evitar micro-riscos.</p>
+            </div>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Lavagem%20T%C3%A9cnica%20Detalhada." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Pedir orçamento</a>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="service-card reveal">
+            <div>
+              <div class="service-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+              </div>
+              <h3>Higienização Interna Completa</h3>
+              <p>Extração profunda de sujeira em bancos de tecido, limpeza e hidratação de bancos de couro, teto, carpetes e dutos de ar-condicionado. Elimina ácaros, manchas e odores.</p>
+            </div>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Higieniza%C3%A7%C3%A3o%20Interna%20Completa." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Pedir orçamento</a>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="service-card reveal">
+            <div>
+              <div class="service-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </div>
+              <h3>Polimento Técnico Comercial</h3>
+              <p>Correção do verniz para remover marcas de lavagem mal feita (teias de aranha), oxidação e riscos superficiais, devolvendo o reflexo espelhado original da pintura.</p>
+            </div>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Polimento%20T%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Pedir orçamento</a>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="service-card reveal">
+            <div>
+              <div class="service-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>Vitrificação de Pintura (Ceramic)</h3>
+              <p>Escudo cerâmico de alta dureza com proteção de até 3 anos contra raios UV, fezes de pássaros, seiva de árvores e chuva ácida, com extrema repelência à água e sujeira.</p>
+            </div>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Vitrifica%C3%A7%C3%A3o%20de%20Pintura." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Pedir orçamento</a>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="service-card reveal">
+            <div>
+              <div class="service-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <h3>Cristalização e Enceramento</h3>
+              <p>Descontaminação da pintura com clay bar seguida de selante sintético ou cera de carnaúba premium. Proporciona toque aveludado e brilho intenso por até 6 meses.</p>
+            </div>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Cristaliza%C3%A7%C3%A3o%20de%20Pintura." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Pedir orçamento</a>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="service-card reveal">
+            <div>
+              <div class="service-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><circle cx="15" cy="11" r="1"/><circle cx="18" cy="13" r="1"/></svg>
+              </div>
+              <h3>Limpeza Técnica de Motor</h3>
+              <p>Limpeza a vapor e desengraxantes dielétricos seguros para componentes eletrônicos, finalizada com verniz protetor que evita o ressecamento de mangueiras e plásticos.</p>
+            </div>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Limpeza%20T%C3%A9cnica%20de%20Motor." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Pedir orçamento</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. PLANOS OU PACOTES
+         ====================================================================== -->
+    <section id="pacotes" class="pricing">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Pacotes Promocionais</span>
+          <h2>Escolha o nível de cuidado ideal para hoje</h2>
+          <p>Valores de referência para carros de passeio (hatch/sedan). Consulte condições para SUVs e caminhonetes.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Pacote Básico -->
+          <div class="price-card reveal">
+            <h3>Pacote Essencial</h3>
+            <p class="price-desc">Manutenção semanal rápida e segura sem agredir o verniz.</p>
+            <div class="price-value">[R$ XX] <small>/ serviço</small></div>
+            <ul class="price-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Lavagem externa com Snow Foam neutro
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Limpeza detalhada de rodas e pneus
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Aspiração interna completa e porta-malas
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Limpeza de vidros e condicionamento de pneus
+              </li>
+            </ul>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Quero%20agendar%20o%20Pacote%20Essencial." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Agendar Essencial</a>
+          </div>
+
+          <!-- Pacote Completo (Destaque) -->
+          <div class="price-card featured reveal">
+            <span class="popular-badge">Mais Vendido</span>
+            <h3>Pacote Completo + Proteção</h3>
+            <p class="price-desc">O equilíbrio perfeito entre limpeza profunda e proteção de brilho.</p>
+            <div class="price-value">[R$ XX] <small>/ serviço</small></div>
+            <ul class="price-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Tudo do Pacote Essencial
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Aplicação de cera selante de carnaúba
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Detalhamento de pincel em emblemas e grades
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Hidratação de plásticos internos com proteção UV
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Oxi-sanitização (elimina odores do ar-condicionado)
+              </li>
+            </ul>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Quero%20agendar%20o%20Pacote%20Completo%20%2B%20Prote%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">Agendar Mais Vendido</a>
+          </div>
+
+          <!-- Pacote Premium -->
+          <div class="price-card reveal">
+            <h3>Pacote Studio VIP</h3>
+            <p class="price-desc">Renovação total interna e externa para carro com aspecto de novo.</p>
+            <div class="price-value">[R$ XX] <small>/ serviço</small></div>
+            <ul class="price-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Lavagem detalhada + descontaminação de pintura
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Higienização interna profunda (bancos e teto)
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Hidratação premium de bancos em couro
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Limpeza técnica de motor + cristalização de para-brisa
+              </li>
+            </ul>
+            <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Quero%20agendar%20o%20Pacote%20Studio%20VIP." target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Agendar Studio VIP</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. COMO FUNCIONA
+         ====================================================================== -->
+    <section id="como-funciona" class="steps">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Simples e Sem Filas</span>
+          <h2>Como funciona o atendimento</h2>
+          <p>Trabalhamos com horário marcado para você não perder tempo esperando.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-number">1</div>
+            <h3>Agende pelo WhatsApp</h3>
+            <p>Escolha o serviço ou pacote desejado e reserve o melhor dia e horário em menos de 2 minutos.</p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">2</div>
+            <h3>Recepção e Checklist</h3>
+            <p>Traga seu carro até nossa loja (ou solicite nosso serviço Leva e Traz) e fazemos uma inspeção inicial juntos.</p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">3</div>
+            <h3>Execução Técnica</h3>
+            <p>Nossa equipe aplica os protocolos específicos para cada superfície usando produtos certificados.</p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">4</div>
+            <h3>Retire Brilhando</h3>
+            <p>Você recebe seu veículo impecável, cheiroso e protegido, pronto para rodar com orgulho.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. ANTES E DEPOIS (GALERIA COM SLIDER)
+         ====================================================================== -->
+    <section id="galeria" class="before-after">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Resultados Reais</span>
+          <h2>Arraste e compare a transformação</h2>
+          <p>Veja a diferença que um tratamento técnico faz na profundidade de cor e no acabamento do veículo.</p>
+        </div>
+
+        <div class="ba-wrapper reveal">
+          <div class="ba-container" id="baContainer">
+            <span class="ba-label before">Antes</span>
+            <span class="ba-label after">Depois</span>
+
+            <!-- TROCAR FOTOS: Substitua os src abaixo pelas fotos reais do Antes e Depois no mesmo ângulo -->
+            <img 
+              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80" 
+              alt="Veículo antes do polimento e lavagem detalhada" 
+              class="ba-image ba-before-img"
+              loading="lazy"
+            >
+
+            <div class="ba-after-wrapper" id="baAfterWrapper">
+              <img 
+                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80" 
+                alt="Veículo depois do polimento e vitrificação com brilho espelhado" 
+                class="ba-image"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="ba-slider-line" id="baLine"></div>
+            <div class="ba-slider-handle" id="baHandle" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg>
+            </div>
+
+            <input 
+              type="range" 
+              min="0" 
+              max="100" 
+              value="50" 
+              class="ba-range" 
+              id="baRange" 
+              aria-label="Controle deslizante para comparar antes e depois"
+            >
+          </div>
+          <p class="ba-caption">Deslize a barra para o lado para comparar o antes e o depois do detalhamento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. DIFERENCIAIS
+         ====================================================================== -->
+    <section class="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Por que a [NOME DA EMPRESA]?</span>
+          <h2>O padrão que o seu carro merece</h2>
+          <p>Não somos um lava-rápido comum. Cada veículo recebe atenção individualizada e insumos de alta performance.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box reveal">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div>
+              <h3>Produtos de Linha Profissional</h3>
+              <p>Utilizamos marcas referência no detalhamento automotivo (Vonixx, Meguiar's, Menzerna), livres de ácidos ou solventes agressivos que queimam plásticos e borrachas.</p>
+            </div>
+          </div>
+
+          <div class="feature-box reveal">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h3>Equipe Treinada e Especializada</h3>
+              <p>Profissionais capacitados em técnicas de lavagem segura (método dois baldes), extração interna e correção de pintura para todos os tipos de verniz.</p>
+            </div>
+          </div>
+
+          <div class="feature-box reveal">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h3>Pontualidade Rigorosa</h3>
+              <p>Respeitamos o seu tempo. Cumprimos rigorosamente o prazo de entrega combinado no agendamento e avisamos via WhatsApp assim que o carro estiver pronto.</p>
+            </div>
+          </div>
+
+          <div class="feature-box reveal">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h3>Garantia de Satisfação e Segurança</h3>
+              <p>Ambiente coberto, monitorado por câmeras 24h e seguro total durante a permanência do veículo. Só entregamos o carro após sua aprovação final.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. DEPOIMENTOS
+         ====================================================================== -->
+    <section id="depoimentos" class="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Quem já trouxe o carro</span>
+          <h2>Avaliações de clientes reais</h2>
+          <p>A confiança de quem exige o melhor acabamento em [CIDADE/BAIRRO].</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <p class="testimonial-text">"Fiz a higienização interna e a cristalização no meu Corolla e o resultado surpreendeu. Tiraram uma mancha antiga do banco e o cheiro de carro novo voltou. Atendimento nota 10."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RM</div>
+              <div class="author-info">
+                <strong>Ricardo Mendes</strong>
+                <span>Toyota Corolla • Avaliação no Google</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <p class="testimonial-text">"Sempre tive receio de lavar meu carro preto e ficar cheio de riscos circulares. Aqui eles realmente entendem de estética automotiva. Pontuais e muito caprichosos nos detalhes."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">CA</div>
+              <div class="author-info">
+                <strong>Camila Almeida</strong>
+                <span>Jeep Compass • Avaliação no Google</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <p class="testimonial-text">"Fiz o polimento técnico e vitrificação na minha Hilux. A água simplesmente escorre sem parar na lataria e ficou muito mais fácil manter limpa no dia a dia. Recomendo de olhos fechados."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">FS</div>
+              <div class="author-info">
+                <strong>Fernando Souza</strong>
+                <span>Toyota Hilux • Avaliação no Google</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. PERGUNTAS FREQUENTES (FAQ)
+         ====================================================================== -->
+    <section class="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Dúvidas Comuns</span>
+          <h2>Perguntas frequentes</h2>
+          <p>Tire suas dúvidas sobre prazos, produtos e cuidados antes de agendar.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Quanto tempo demora uma lavagem detalhada?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Diferente de um lava-rápido tradicional, nossa lavagem detalhada leva em média de 1h30 a 2h30, dependendo do tamanho e estado do veículo. Serviços como higienização interna ou polimento levam de 4 horas a 1 dia útil.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Preciso agendar horário ou posso ir direto?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Recomendamos fortemente o agendamento prévio pelo WhatsApp para garantir atendimento imediato sem espera. Caso haja vaga no box no momento, também atendemos por ordem de chegada.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Vocês oferecem serviço de Leva e Traz?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Sim! Buscamos e entregamos seu veículo na sua casa ou trabalho dentro de [CIDADE/BAIRRO] e região mediante agendamento prévio. Consulte disponibilidade e taxa de deslocamento no WhatsApp.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Qual a diferença entre cristalização e vitrificação?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                A cristalização aplica uma camada protetora de cera/selante que dura cerca de 4 a 6 meses. Já a vitrificação cria uma película cerâmica de alta resistência física e química sobre o verniz, durando de 1 a 3 anos com brilho muito superior.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Lavagem de motor pode danificar a parte elétrica?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Não quando feita da maneira correta. Não jogamos jato de água de alta pressão diretamente sobre módulos e sensores. Isolamos os pontos sensíveis e usamos vapor controlado com produtos dielétricos específicos para motores modernos.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Quais são as formas de pagamento aceitas?</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Aceitamos Pix, dinheiro, cartões de débito e crédito (com parcelamento em até 3x sem juros para pacotes completos, polimento e vitrificação).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         11. AGENDAMENTO, LOCALIZAÇÃO E CONTATO
+         ====================================================================== -->
+    <section id="contato" class="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Reserve seu Horário</span>
+          <h2>Agende agora pelo WhatsApp</h2>
+          <p>Preencha os dados abaixo para iniciar seu atendimento já com as informações do seu veículo.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Formulário que envia para WhatsApp -->
+          <div class="booking-box reveal">
+            <h3>Solicitar Agendamento</h3>
+            <p>Ao clicar em enviar, você será redirecionado para o nosso WhatsApp com a mensagem pronta.</p>
+
+            <form id="whatsappForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Seu Nome *</label>
+                  <input type="text" id="nome" name="nome" placeholder="Ex.: João Silva" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="telefone">Seu WhatsApp *</label>
+                  <input type="tel" id="telefone" name="telefone" placeholder="Ex.: (14) 99999-9999" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="veiculo">Modelo e Cor do Veículo *</label>
+                <input type="text" id="veiculo" name="veiculo" placeholder="Ex.: Honda Civic Prata" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="servico">Serviço Desejado *</label>
+                  <select id="servico" name="servico" required>
+                    <option value="Lavagem Técnica Detalhada">Lavagem Técnica Detalhada</option>
+                    <option value="Pacote Essencial">Pacote Essencial</option>
+                    <option value="Pacote Completo + Proteção (Mais Vendido)">Pacote Completo + Proteção</option>
+                    <option value="Pacote Studio VIP">Pacote Studio VIP</option>
+                    <option value="Higienização Interna Completa">Higienização Interna Completa</option>
+                    <option value="Polimento Técnico">Polimento Técnico</option>
+                    <option value="Vitrificação de Pintura">Vitrificação de Pintura</option>
+                    <option value="Limpeza Técnica de Motor">Limpeza Técnica de Motor</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="data">Data Preferencial *</label>
+                  <input type="date" id="data" name="data" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+                Confirmar Agendamento no WhatsApp
+              </button>
+            </form>
+          </div>
+
+          <!-- Informações de Endereço e Mapa -->
+          <div class="location-info reveal">
+            <div class="info-card">
+              <h3 style="margin-bottom: 1.25rem;">Onde Estamos</h3>
+              <ul class="info-list">
+                <li>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <div>
+                    <strong>Endereço:</strong><br>
+                    <!-- TROCAR ENDEREÇO -->
+                    [Rua Exemplo, 123 - Bairro, Cidade/UF - CEP 00000-000]
+                  </div>
+                </li>
+                <li>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <div>
+                    <strong>Horário de Funcionamento:</strong><br>
+                    Segunda a Sexta: 08h00 às 18h00<br>
+                    Sábado: 08h00 às 14h00
+                  </div>
+                </li>
+                <li>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <div>
+                    <strong>Telefone e WhatsApp:</strong><br>
+                    <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." target="_blank" rel="noopener noreferrer" style="color: var(--accent-hover); font-weight: 700;">(14) 99644-5025</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- TROCAR LINK DO MAPA: Cole aqui o src do iframe gerado no Google Maps ("Compartilhar > Incorporar um mapa") -->
+            <iframe 
+              class="map-frame"
+              title="Localização no Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.347093385642!2d-49.060556!3d-22.340556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDIwJzI2LjAiUyA0OcKwMDMnMzguMCJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       12. RODAPÉ
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="logo">
+          <span class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          </span>
+          <span>[NOME DA EMPRESA]</span>
+        </a>
+
+        <div class="social-links">
+          <!-- TROCAR LINK DO INSTAGRAM -->
+          <a href="https://instagram.com/[instagram]" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Siga no Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> [NOME DA EMPRESA] - Estética Automotiva. Todos os direitos reservados.</p>
+        <p>[CIDADE/BAIRRO] • Atendimento com hora marcada</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       BOTÃO FLUTUANTE WHATSAPP
+       ======================================================================== -->
+  <a 
+    href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="whatsapp-float" 
+    aria-label="Falar no WhatsApp"
+  >
+    <span class="whatsapp-tooltip">Agendar no WhatsApp</span>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+  </a>
+
+  <!-- ========================================================================
+       JAVASCRIPT (MENU, SLIDER ANTES/DEPOIS, FAQ, FORMULÁRIO E ANIMAÇÕES)
+       ======================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Ano atual no rodapé
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // 2. Menu Responsivo (Mobile)
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          menuToggle.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // 3. Slider de Comparação Antes e Depois
+      const baRange = document.getElementById('baRange');
+      const baAfterWrapper = document.getElementById('baAfterWrapper');
+      const baLine = document.getElementById('baLine');
+      const baHandle = document.getElementById('baHandle');
+
+      if (baRange) {
+        const updateSlider = (val) => {
+          baAfterWrapper.style.clipPath = `inset(0 0 0 ${val}%)`;
+          baLine.style.left = `${val}%`;
+          baHandle.style.left = `${val}%`;
+        };
+
+        baRange.addEventListener('input', (e) => {
+          updateSlider(e.target.value);
+        });
+      }
+
+      // 4. Acordeão FAQ
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+
+        btn.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+
+          // Fecha outros itens abertos
+          faqItems.forEach(other => {
+            other.classList.remove('active');
+            other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-answer').style.maxHeight = null;
+          });
+
+          if (!isOpen) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        });
+      });
+
+      // 5. Formulário de Agendamento -> Redireciona para WhatsApp
+      const whatsappForm = document.getElementById('whatsappForm');
+      const dateInput = document.getElementById('data');
+
+      // Define data mínima como hoje
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+      }
+
+      if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          const nome = document.getElementById('nome').value.trim();
+          const telefone = document.getElementById('telefone').value.trim();
+          const veiculo = document.getElementById('veiculo').value.trim();
+          const servico = document.getElementById('servico').value;
+          const dataRaw = document.getElementById('data').value;
+
+          // Formata data para padrão brasileiro (DD/MM/AAAA)
+          let dataFormatada = dataRaw;
+          if (dataRaw && dataRaw.includes('-')) {
+            const [ano, mes, dia] = dataRaw.split('-');
+            dataFormatada = `${dia}/${mes}/${ano}`;
+          }
+
+          const numeroWhatsApp = '5514996445025';
+          const mensagem = `Olá! Gostaria de agendar um serviço:\n\n` +
+                           `*Nome:* ${nome}\n` +
+                           `*Telefone:* ${telefone}\n` +
+                           `*Veículo:* ${veiculo}\n` +
+                           `*Serviço:* ${servico}\n` +
+                           `*Data preferencial:* ${dataFormatada}`;
+
+          const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+          window.open(url, '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      // 6. Animação sutil ao rolar a página (Intersection Observer)
+      const reveals = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>
