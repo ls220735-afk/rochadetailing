@@ -35,7 +35,6 @@
       "streetAddress": "Avenida Tomé de Souza, 71",
       "addressLocality": "Marília",
       "addressRegion": "SP",
-      "postalCode": "[CEP]",
       "addressCountry": "BR"
     },
     "priceRange": "$$"
@@ -62,8 +61,8 @@
       --radius-md: 14px;
       --radius-lg: 20px;
       --shadow-sm: 0 4px 6px -1px rgba(17, 18, 20, 0.05);
-      --shadow-md: 0 10px 25px -5px rgba(10, 25, 47, 0.08);
-      --shadow-lg: 0 20px 40px -10px rgba(10, 25, 47, 0.15);
+      --shadow-md: 0 10px 25px -5px rgba(17, 18, 20, 0.08);
+      --shadow-lg: 0 20px 40px -10px rgba(17, 18, 20, 0.15);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
@@ -188,7 +187,7 @@
     .btn-primary {
       background-color: var(--accent);
       color: var(--primary);
-      box-shadow: 0 8px 20px -4px rgba(0, 180, 216, 0.35);
+      box-shadow: 0 8px 20px -4px rgba(200, 169, 106, 0.35);
     }
 
     .btn-primary:hover {
@@ -243,7 +242,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      background-color: rgba(10, 25, 47, 0.96);
+      background-color: rgba(17, 18, 20, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       transition: var(--transition);
@@ -410,7 +409,7 @@
       position: absolute;
       inset: 0;
       /* TROCAR IMAGEM: Foto principal de impacto (carro esportivo/brilhando) */
-      background-image: linear-gradient(90deg, rgba(10, 25, 47, 0.94) 0%, rgba(10, 25, 47, 0.8) 55%, rgba(10, 25, 47, 0.45) 100%),
+      background-image: linear-gradient(90deg, rgba(17, 18, 20, 0.94) 0%, rgba(17, 18, 20, 0.8) 55%, rgba(17, 18, 20, 0.45) 100%),
                         url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
@@ -427,8 +426,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(0, 180, 216, 0.18);
-      border: 1px solid rgba(0, 180, 216, 0.4);
+      background: rgba(200, 169, 106, 0.18);
+      border: 1px solid rgba(200, 169, 106, 0.4);
       color: #E8D4A8;
       font-size: 0.85rem;
       font-weight: 600;
@@ -502,7 +501,7 @@
       height: 48px;
       flex-shrink: 0;
       border-radius: 12px;
-      background: rgba(0, 180, 216, 0.15);
+      background: rgba(200, 169, 106, 0.15);
       color: var(--accent);
       display: flex;
       align-items: center;
@@ -562,14 +561,14 @@
     .service-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-md);
-      border-color: rgba(0, 180, 216, 0.4);
+      border-color: rgba(200, 169, 106, 0.4);
     }
 
     .service-icon {
       width: 54px;
       height: 54px;
       border-radius: 12px;
-      background: rgba(10, 25, 47, 0.05);
+      background: rgba(17, 18, 20, 0.05);
       color: var(--primary);
       display: flex;
       align-items: center;
@@ -754,7 +753,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 16px rgba(10, 25, 47, 0.15);
+      box-shadow: 0 8px 16px rgba(17, 18, 20, 0.15);
     }
 
     .step-card h3 {
@@ -811,7 +810,7 @@
       position: absolute;
       top: 1rem;
       padding: 0.35rem 0.85rem;
-      background: rgba(10, 25, 47, 0.85);
+      background: rgba(17, 18, 20, 0.85);
       color: var(--white);
       font-size: 0.78rem;
       font-weight: 700;
@@ -917,7 +916,7 @@
       height: 50px;
       flex-shrink: 0;
       border-radius: 12px;
-      background: rgba(0, 180, 216, 0.15);
+      background: rgba(200, 169, 106, 0.15);
       color: var(--accent);
       display: flex;
       align-items: center;
@@ -1974,6 +1973,13 @@
                   <div>
                     <strong>Telefone e WhatsApp:</strong><br>
                     <a href="https://wa.me/5514996445025?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20lavagem." target="_blank" rel="noopener noreferrer" style="color: var(--accent-hover); font-weight: 700;">(14) 99644-5025</a>
+                  </div>
+                </li>
+                <li>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                  <div><strong>E-mail:</strong><br><a href="mailto:esdrasrochass@hotmail.com" style="color: var(--accent-hover); font-weight: 700;">esdrasrochass@hotmail.com</a></div>
+                  </div>
+                </li>
                   </div>
                 </li>
               </ul>
